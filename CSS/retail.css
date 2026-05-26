@@ -1,0 +1,377 @@
+/* =======================================================
+   RETAIL.CSS - HOJA DE ESTILOS PARA LA SECCIÓN COMERCIO
+   ======================================================= */
+
+:root {
+    --mrm-blue: #0088ff;
+    --brand-orange: #ff6b00;
+    --brand-orange-hover: #e05e00;
+    --light-gray: #f5f5f7;
+    --text-dark: #000000;
+    --text-muted: #666666;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text-dark);
+}
+
+/* NAVBAR CORPORATIVA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-mrm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background-color: var(--mrm-blue);
+    padding: 8px 18px;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.nav-btn-orange {
+    background-color: var(--brand-orange);
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600 !important;
+    transition: background-color 0.2s;
+}
+
+.nav-btn-orange:hover {
+    background-color: var(--brand-orange-hover);
+}
+
+/* HERO CON LOGOS PERFECTAMENTE COMPACTOS Y GRANDES */
+.retail-hero-section {
+    padding: 60px 40px;
+    background-color: var(--light-gray);
+}
+
+.hero-brands-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1350px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.hero-logo-side {
+    flex: 0 0 220px;
+    display: flex;
+}
+
+.left-side { justify-content: flex-start; }
+.right-side { justify-content: flex-end; }
+
+.brand-logo-img {
+    max-width: 190px;
+    max-height: 75px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Ajustes específicos por formato de imagen */
+.logo-cegid { max-height: 150px; }
+.logo-retail { max-height: 150px; }
+
+.hero-center-content {
+    flex: 1;
+    max-width: 720px;
+    text-align: center;
+}
+
+.hero-center-content h1 {
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.retail-subtitle-hero {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-orange {
+    display: inline-block;
+    background-color: var(--brand-orange);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-orange:hover {
+    transform: scale(1.03);
+    background-color: var(--brand-orange-hover);
+}
+
+/* SECCIONES COMUNES Y GRIDS */
+.retail-section {
+    padding: 90px 40px;
+    background-color: #ffffff;
+}
+
+.tech-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tech-container h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.tech-subtitle {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+    line-height: 1.6;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+}
+
+.tech-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tech-icon {
+    color: var(--brand-orange);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.tech-column h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.tech-column p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* FILAS EN ZIG-ZAG DE SECCIÓN DETALLE */
+.retail-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.retail-row-container.reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.retail-row-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.retail-row-text h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.retail-row-text p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.tech-highlight {
+    font-size: 14px;
+    color: var(--mrm-blue);
+    font-weight: 600;
+}
+
+.retail-row-image {
+    flex: 1;
+    min-width: 300px;
+    background: #eef2f7;
+    height: 320px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #718096;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    overflow: hidden;
+}
+
+.retail-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estado inicial de los elementos (ocultos y desplazados hacia abajo) */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Estado cuando el usuario llega con el scroll (se activa con JavaScript) */
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER CORPORATIVO UNIFICADO */
+.footer {
+    background-color: #0b0f19;
+    color: #ffffff;
+    padding: 60px 40px 30px 40px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col h4 { margin-bottom: 20px; font-size: 16px; color: #fff; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #a0aec0; text-decoration: none; font-size: 14px; }
+.footer-col ul li a:hover { color: #fff; }
+
+.footer-socials {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    margin: 40px auto 25px auto !important;
+    padding-top: 25px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    max-width: 1200px;
+}
+
+.footer-socials svg { width: 24px !important; height: 24px !important; fill: #ffffff !important; opacity: 0.8; }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #718096;
+}
+
+.footer-legal a { color: #718096; text-decoration: none; margin-left: 20px; }
+
+/* MENÚ HAMBURGUESA MÓVIL Y ANIMACIÓN */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--brand-orange); }
+.menu-toggle.open .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--brand-orange); }
+
+@media (max-width: 992px) {
+    .hero-brands-container { flex-direction: column; gap: 25px; }
+    .left-side, .right-side { justify-content: center; }
+    .hero-center-content { order: 3; }
+    .brand-logo-img { max-width: 150px; max-height: 60px; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background: #fff;
+        padding: 20px;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    .nav-links.active { display: flex; }
+    .retail-row-container { flex-direction: column; text-align: center; }
+    .retail-row-container.reverse { flex-direction: column-reverse; }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+    .footer-legal a { margin: 0 10px; }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Presupuesto - TPV Inteligente</title>
+    <link rel="stylesheet" href="../CSS/restaurante.css">
+    <link rel="stylesheet" href="../CSS/presupuesto.css">
+</head>
+<body>
+
+    <main class="budget-page">
+        <div class="budget-container">
+            
+            <div class="budget-info">
+                <a href="../HTML/Inicio.html" class="back-link">← Volver al inicio</a>
+                <h1>Potencia y simplicidad para tu día a día</h1>
+                <p class="budget-lead">Estás a un paso de optimizar la gestión de tu negocio con herramientas diseñadas a tu medida.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h3>Adaptado a normativas vigentes</h3>
+                            <p>Garantía total de cumplimiento con la Ley Antifraude y sistemas Verifactu / TicketBAI de forma transparente.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h3>Ecosistema modular</h3>
+                            <p>Desde matrices de tallas y colores hasta integraciones avanzadas de control de accesos (Crownet) o TPV tradicional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="budget-card">
+                <h2>Cuéntanos qué necesitas</h2>
+                <p class="card-subtitle">Te prepararemos una propuesta personalizada en menos de 24 horas.</p>
+                
+                <div class="sector-toggle-container">
+                    <div class="sector-toggle">
+                        <button type="button" id="btn-restaurant" class="sector-btn active" onclick="cambiarSector('restaurant')">Restaurante</button>
+                        <button type="button" id="btn-retail" class="sector-btn" onclick="cambiarSector('retail')">Retail</button>
+                    </div>
+                </div>
+
+                <form action="https://formsubmit.co/info@mrmsolutions.es" method="POST" class="budget-form">
+                    
+                    <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto TPV - MRM Solutions">
+                    <input type="hidden" name="_captcha" value="false"> 
+                    
+                    <input type="hidden" id="correo-sector" name="Sector_Seleccionado" value="restaurant">
+                    <input type="hidden" id="correo-titular-plan" name="Plan_Nombre" value="">
+                    <input type="hidden" id="correo-detalles-plan" name="Plan_Caracteristicas" value="">
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+                    </div>
+
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="juan@tuempresa.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="600 000 000">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan">Plan de interés inicial</label>
+                        <select id="plan" name="plan" onchange="actualizarDetallesPlan()">
+                            <option value="estandar">Estandar — 59€/mes</option>
+                            <option value="plus" selected>Plus — 99€/mes</option>
+                            <option value="empresa">Empresa — A medida</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div id="plan-info-box" class="plan-info-box">
+                            <h4 id="plan-titular">Cargando plan...</h4>
+                            <p id="plan-descripcion"></p>
+                            <ul id="plan-caracteristicas" class="plan-features-list">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Detalles de tu negocio (Opcional)</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos un poco sobre tu sector, número de terminales o necesidades específicas..."></textarea>
+                    </div>
+
+                    <div class="form-group privacy-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required name="privacidad"> Acepto la política de tratamiento de datos.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar solicitud de presupuesto</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let sectorActual = 'restaurant';
+
+        const baseDatosPlanes = {
+            restaurant: {
+                estandar: {
+                    titular: "Estandar Restaurante — 59 € / mes",
+                    descripcion: "Gestión ágil para establecimientos que buscan control completo de sala, barra y cumplimiento normativo.",
+                    caracteristicas: ["Verifactu y TicketBAI", "Dashboard de control", "Fichaje digital", "Carta digital", "Autopedidos", "Soporte técnico", "Gestión de stock"]
+                },
+                plus: {
+                    titular: "Plus Restaurante — 99 € / mes (Popular)",
+                    descripcion: "Ecosistema definitivo de restauración con herramientas de automatización de mesas y canales de venta digital.",
+                    caracteristicas: ["Todo lo incluido en Starter", "Pasarela de pagos", "Módulo de Reservas", "Propinas digitales", "Herramientas de Fidelización", "Delivery y Take away", "Licencia Máster"]
+                },
+                empresa: {
+                    titular: "Empresa Restaurante — A medida",
+                    descripcion: "Diseñado para franquicias, cadenas de restauración organizada y alta volumetría de comandas.",
+                    caracteristicas: ["Todo lo incluido en Plus", "Experto dedicado", "Servicios especializados", "Ahorro por volumen", "Desarrollos exclusivos"]
+                }
+            },
+            retail: {
+                estandar: {
+                    titular: "Estandar Retail — 59 € / mes",
+                    descripcion: "Perfecto para tiendas independientes y comercios tradicionales que requieren facturación robusta y ágil.",
+                    caracteristicas: ["Verifactu y TicketBAI", "Dashboard de control", "Fichaje digital de empleados", "Control de inventario básico", "Impresión de tickets lineales", "Soporte técnico permanente"]
+                },
+                plus: {
+                    titular: "Plus Retail — 99 € / mes (Recomendado)",
+                    descripcion: "Solución avanzada para sector moda, calzado y deportes con flujos optimizados de mercancía y etiquetado.",
+                    caracteristicas: ["Todo lo incluido en Starter Retail", "Matriz avanzada de Tallas, Colores y Variaciones", "Automatización de etiquetas desde TPV", "Pasarela de pagos unificada", "Fidelización de clientes CRM", "Sincronización multitienda / stock"]
+                },
+                empresa: {
+                    titular: "Empresa Retail — A medida",
+                    descripcion: "Para grandes retailers, centros de distribución o integraciones de control de accesos complejos (Crownet).",
+                    caracteristicas: ["Todo lo incluido en Plus Retail", "Integración avanzada Crownet (Accesos/Taquillas)", "Gestión centralizada de compras", "Consultoría técnica e implantación", "SLA garantizado y soporte VIP"]
+                }
+            }
+        };
+
+        function cambiarSector(sector) {
+            sectorActual = sector;
+            
+            document.getElementById('btn-restaurant').classList.remove('active');
+            document.getElementById('btn-retail').classList.remove('active');
+            
+            if (sector === 'restaurant') {
+                document.getElementById('btn-restaurant').classList.add('active');
+            } else {
+                document.getElementById('btn-retail').classList.add('active');
+            }
+
+            actualizarDetallesPlan();
+        }
+
+        function actualizarDetallesPlan() {
+            const selectPlan = document.getElementById('plan');
+            const planSeleccionado = selectPlan.value; 
+            
+            const datosPlan = baseDatosPlanes[sectorActual][planSeleccionado];
+
+            document.getElementById('plan-titular').innerText = datosPlan.titular;
+            document.getElementById('plan-descripcion').innerText = datosPlan.descripcion;
+
+            const contenedorLista = document.getElementById('plan-caracteristicas');
+            contenedorLista.innerHTML = '';
+
+            datosPlan.caracteristicas.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="bullet-check">✓</span> ${item}`;
+                contenedorLista.appendChild(li);
+            });
+
+            // Guardar dinámicamente los datos elegidos para mandarlos por email
+            document.getElementById('correo-sector').value = sectorActual.toUpperCase();
+            document.getElementById('correo-titular-plan').value = datosPlan.titular;
+            document.getElementById('correo-detalles-plan').value = datosPlan.caracteristicas.join(' | ');
+        }
+
+        function inicializarPagina() {
+            const parametrosURL = new URLSearchParams(window.location.search);
+            const sectorDetectado = parametrosURL.get('sector'); 
+
+            if (sectorDetectado === 'restaurant' || sectorDetectado === 'retail') {
+                cambiarSector(sectorDetectado);
+            } else {
+                actualizarDetallesPlan();
+            }
+        }
+
+        // 'inicializarPagina' para que detecte la URL al entrar
+        window.onload = inicializarPagina;
+    </script>
+</body>
+</html>

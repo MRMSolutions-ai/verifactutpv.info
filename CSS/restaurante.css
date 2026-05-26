@@ -1,0 +1,541 @@
+/* =======================================================
+   RESTAURANTE.CSS - HOJA DE ESTILOS DE MARCA PROPIA 
+   ======================================================= */
+
+/* VARIABLES CORPORATIVAS (PANTALLA INICIO) */
+:root {
+    --mrm-blue: #0088ff;
+    --brand-orange: #ff6b00; 
+    --brand-orange-hover: #e05e00; 
+    --light-gray: #f5f5f7;
+    --text-dark: #000000;
+    --text-muted: #666666;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text-dark);
+}
+
+/* NAVBAR CORPORATIVA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-mrm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background-color: var(--mrm-blue);
+    padding: 8px 18px;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* ==========================================
+   HERO CON LOGOS LATERALES (TAMAÑO EQUILIBRADO)
+   ========================================== */
+
+.tech-hero-section {
+    padding: 60px 40px;
+    background-color: #f5f5f7;
+}
+
+.hero-brands-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alineación vertical perfecta */
+    max-width: 1350px;   /* Un pelín más ancho para dar espacio a los logos más grandes */
+    margin: 0 auto;
+    gap: 30px;
+}
+
+/* Columnas laterales */
+.hero-logo-side {
+    flex: 0 0 220px; /* Espacio reservado para que los logos respiren */
+    display: flex;
+}
+
+.left-side {
+    justify-content: flex-start;
+}
+
+.right-side {
+    justify-content: flex-end;
+}
+
+/* Control general de tamaño para ambos logos */
+.brand-logo-img {
+    max-width: 275px;  /* Incrementado para que no se vean pequeños */
+    max-height: 125px;  /* Altura máxima generosa para mantener la nitidez */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Ajuste fino personalizado por si el logo redondo necesita verse más grande */
+.logo-cegid {
+    max-height: 85px;  /* Un extra de altura por su forma circular/isométrica */
+}
+
+.logo-xef {
+    max-height: 65px;  /* Se mantiene estilizado por ser puramente horizontal */
+}
+
+/* Bloque central */
+.hero-center-content {
+    flex: 1;
+    max-width: 720px;
+    text-align: center;
+}
+
+/* Botón de acción */
+.btn-orange {
+    display: inline-block;
+    background-color: #ff6b00;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-orange:hover {
+    transform: scale(1.03);
+    background-color: #e05e00;
+}
+
+/* Vista móvil */
+@media (max-width: 992px) {
+    .hero-brands-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .left-side, .right-side {
+        justify-content: center;
+    }
+    .brand-logo-img {
+        max-width: 150px;
+        max-height: 60px;
+    }
+    .hero-center-content {
+        order: 3;
+    }
+}
+
+/* BOTÓN DE LA NAVBAR EN NARANJA */
+.nav-btn-red {
+    background-color: var(--brand-orange);
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600 !important;
+    transition: background-color 0.2s ease;
+}
+
+.nav-btn-red:hover {
+    background-color: var(--brand-orange-hover);
+}
+
+/* HERO DE ENTRADA LIMPIO */
+.tech-hero-section {
+    padding: 80px 40px;
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.tech-hero-section h1 {
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tech-subtitle-hero {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* BOTÓN PRINCIPAL EN NARANJA */
+.btn-red {
+    display: inline-block;
+    background-color: var(--brand-orange);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-red:hover {
+    transform: scale(1.03);
+    background-color: var(--brand-orange-hover);
+}
+
+/* SECCIONES Y GRIDS COMUNES */
+.tech-section {
+    padding: 90px 40px;
+    background-color: #ffffff;
+}
+
+.tech-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tech-container h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.tech-subtitle {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+    line-height: 1.6;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+}
+
+.tech-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tech-icon {
+    color: var(--brand-orange); /* Iconos resaltados en naranja */
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.tech-column h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.tech-column p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* FILAS DE CARACTERÍSTICAS (ESTILO ZIG-ZAG) */
+.restaurant-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.restaurant-row-container.reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.restaurant-row-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.restaurant-row-text h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.restaurant-row-text p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.tech-highlight {
+    font-size: 14px;
+    color: var(--mrm-blue);
+    font-weight: 600;
+}
+
+.restaurant-row-image {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    font-weight: 600;
+    color: #999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+/* BANNER DE INTEGRACIONES */
+.integrations-banner-clean {
+    background-color: var(--light-gray);
+    padding: 40px;
+    border-radius: 8px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.integrations-banner-clean h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.integrations-banner-clean p {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 840px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.restaurant-row-image {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    overflow: hidden; /* Esto hace que la foto respete las esquinas redondeadas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+/* Regla crucial para que las imágenes queden perfectas */
+.restaurant-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la foto rellenando todo el espacio de forma proporcional */
+    object-position: center;
+}
+
+/* Regla para las imágenes dentro de los recuadros */
+.restaurant-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste perfecto sin deformación */
+
+}
+
+/* Estilo temporal para los recuadros sin foto */
+.placeholder-graphic {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #eef2f7 0%, #dfe6ed 100%);
+    color: #4a5568;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* FOOTER CORPORATIVO (IDÉNTICO A LA HOME) */
+.footer {
+    background-color: #0b0f19;
+    color: #ffffff;
+    padding: 60px 40px 30px 40px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* REDES SOCIALES TOTALMENTE VISIBLES Y BLANCAS */
+.footer-socials {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    margin: 40px auto 25px auto !important;
+    padding-top: 25px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    max-width: 1200px;
+}
+
+.footer-socials svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #ffffff !important;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.footer-socials a:hover svg {
+    opacity: 1;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #718096;
+}
+
+.footer-legal a {
+    color: #718096;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* DISEÑO RESPONSIVO MÓVIL */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación del botón hamburguesa a X en Naranja */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background-color: var(--brand-orange);
+}
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background-color: var(--brand-orange);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background: #fff;
+        padding: 20px;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .restaurant-row-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .restaurant-row-container.reverse {
+        flex-direction: column-reverse;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .footer-legal a {
+        margin: 0 10px;
+    }
+}
