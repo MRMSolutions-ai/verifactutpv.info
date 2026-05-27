@@ -146,6 +146,7 @@ body {
     width: 100%;
     height: 100%;
     fill: var(--dark-blue);
+    opacity:0.8;
     animation: moveCloudFront 10s ease-in-out infinite alternate;
 }
 
