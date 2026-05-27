@@ -38,13 +38,6 @@
             <div class="budget-card">
                 <h2>Cuéntanos qué necesitas</h2>
                 <p class="card-subtitle">Te prepararemos una propuesta personalizada en menos de 24 horas.</p>
-                
-                <div class="sector-toggle-container">
-                    <div class="sector-toggle">
-                        <button type="button" id="btn-restaurant" class="sector-btn active" onclick="cambiarSector('restaurant')">Restaurante</button>
-                        <button type="button" id="btn-retail" class="sector-btn" onclick="cambiarSector('retail')">Retail</button>
-                    </div>
-                </div>
 
                 <form action="https://formsubmit.co/info@mrmsolutions.es" method="POST" class="budget-form">
                     
@@ -60,6 +53,69 @@
                         <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
                     </div>
 
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la Empresa</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. MRM Solutions S.L.">
+                    </div>
+                    
+                    <div class="form-group">
+                    <label for="provincia">Provincia:</label>
+                        <select id="provincia" name="provincia" required>
+                        <option value="" disabled selected>Selecciona tu provincia</option>
+                        <option value="alava">Álava</option>
+                        <option value="albacete">Albacete</option>
+                        <option value="alicante">Alicante</option>
+                        <option value="almeria">Almería</option>
+                        <option value="asturias">Asturias</option>
+                        <option value="avila">Ávila</option>
+                        <option value="badajoz">Badajoz</option>
+                        <option value="barcelona">Barcelona</option>
+                        <option value="burgos">Burgos</option>
+                        <option value="caceres">Cáceres</option>
+                        <option value="cadiz">Cádiz</option>
+                        <option value="cantabria">Cantabria</option>
+                        <option value="castellon">Castellón</option>
+                        <option value="ceuta">Ceuta</option>
+                        <option value="ciudad-real">Ciudad Real</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="cuenca">Cuenca</option>
+                        <option value="girona">Girona</option>
+                        <option value="granada">Granada</option>
+                        <option value="guadalajara">Guadalajara</option>
+                        <option value="guipuzcoa">Guipúzcoa</option>
+                        <option value="huelva">Huelva</option>
+                        <option value="huesca">Huesca</option>
+                        <option value="illes-balears">Illes Balears</option>
+                        <option value="jaen">Jaén</option>
+                        <option value="la-coruna">La Coruña</option>
+                        <option value="la-rioja">La Rioja</option>
+                        <option value="las-palmas">Las Palmas</option>
+                        <option value="leon">León</option>
+                        <option value="lleida">Lleida</option>
+                        <option value="lugo">Lugo</option>
+                        <option value="madrid">Madrid</option>
+                        <option value="malaga">Málaga</option>
+                        <option value="melilla">Melilla</option>
+                        <option value="murcia">Murcia</option>
+                        <option value="navarra">Navarra</option>
+                        <option value="ourense">Ourense</option>
+                        <option value="palencia">Palencia</option>
+                        <option value="pontevedra">Pontevedra</option>
+                        <option value="salamanca">Salamanca</option>
+                        <option value="santa-cruz-tenerife">Santa Cruz de Tenerife</option>
+                        <option value="segovia">Segovia</option>
+                        <option value="sevilla">Sevilla</option>
+                        <option value="soria">Soria</option>
+                        <option value="tarragona">Tarragona</option>
+                        <option value="teruel">Teruel</option>
+                        <option value="toledo">Toledo</option>
+                        <option value="valencia">Valencia</option>
+                        <option value="valladolid">Valladolid</option>
+                        <option value="vizcaya">Vizcaya</option>
+                        <option value="zamora">Zamora</option>
+                        <option value="zaragoza">Zaragoza</option>
+                    </select>
+                </div>
                     <div class="form-group-row">
                         <div class="form-group">
                             <label for="email">Correo electrónico</label>
@@ -72,23 +128,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="plan">Plan de interés inicial</label>
-                        <select id="plan" name="plan" onchange="actualizarDetallesPlan()">
-                            <option value="estandar">Estandar — 59€/mes</option>
-                            <option value="plus" selected>Plus — 99€/mes</option>
-                            <option value="empresa">Empresa — A medida</option>
+                        <label for="plan">Sector</label>
+                        <select id="plan" name="plan" >
+                            <option value="" disabled selected>Selecciona tu sector</option>
+                            <option value="Restauración">Restauración</option>
+                            <option value="Comercio">Comercio</option>
+                            <option value="Hotel">Hotel</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <div id="plan-info-box" class="plan-info-box">
-                            <h4 id="plan-titular">Cargando plan...</h4>
-                            <p id="plan-descripcion"></p>
-                            <ul id="plan-caracteristicas" class="plan-features-list">
-                            </ul>
-                        </div>
+                        <label for="plan">Número de Establecimientos</label>
+                        <select id="plan" name="plan">
+                            <option value="" disabled selected>Selecciona el número de establecimientos</option>
+                            <option value="1 establecimiento">1 establecimiento</option>
+                            <option value="2-5 establecimientos">2-5 establecimientos</option>
+                            <option value="más de 5 establecimientos">Más de 5 establecimientos</option>
+                        </select>
                     </div>
-
                     <div class="form-group">
                         <label for="mensaje">Detalles de tu negocio (Opcional)</label>
                         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos un poco sobre tu sector, número de terminales o necesidades específicas..."></textarea>
@@ -98,106 +155,13 @@
                         <label class="checkbox-label">
                             <input type="checkbox" required name="privacidad"> Acepto la política de tratamiento de datos.
                         </label>
+                        <li><a href="https://mrmsolutions.es/privacy-policy/">Politica Privacidad</a></li>
                     </div>
 
-                    <button type="submit" class="btn-submit">Enviar solicitud de presupuesto</button>
+                    <button type="submit" href="mailto:info@mrmsolutions.es" class="btn-submit">Enviar solicitud de presupuesto</button>
                 </form>
             </div>
         </div>
     </main>
-
-    <script>
-        let sectorActual = 'restaurant';
-
-        const baseDatosPlanes = {
-            restaurant: {
-                estandar: {
-                    titular: "Estandar Restaurante — 59 € / mes",
-                    descripcion: "Gestión ágil para establecimientos que buscan control completo de sala, barra y cumplimiento normativo.",
-                    caracteristicas: ["Verifactu y TicketBAI", "Dashboard de control", "Fichaje digital", "Carta digital", "Autopedidos", "Soporte técnico", "Gestión de stock"]
-                },
-                plus: {
-                    titular: "Plus Restaurante — 99 € / mes (Popular)",
-                    descripcion: "Ecosistema definitivo de restauración con herramientas de automatización de mesas y canales de venta digital.",
-                    caracteristicas: ["Todo lo incluido en Starter", "Pasarela de pagos", "Módulo de Reservas", "Propinas digitales", "Herramientas de Fidelización", "Delivery y Take away", "Licencia Máster"]
-                },
-                empresa: {
-                    titular: "Empresa Restaurante — A medida",
-                    descripcion: "Diseñado para franquicias, cadenas de restauración organizada y alta volumetría de comandas.",
-                    caracteristicas: ["Todo lo incluido en Plus", "Experto dedicado", "Servicios especializados", "Ahorro por volumen", "Desarrollos exclusivos"]
-                }
-            },
-            retail: {
-                estandar: {
-                    titular: "Estandar Retail — 59 € / mes",
-                    descripcion: "Perfecto para tiendas independientes y comercios tradicionales que requieren facturación robusta y ágil.",
-                    caracteristicas: ["Verifactu y TicketBAI", "Dashboard de control", "Fichaje digital de empleados", "Control de inventario básico", "Impresión de tickets lineales", "Soporte técnico permanente"]
-                },
-                plus: {
-                    titular: "Plus Retail — 99 € / mes (Recomendado)",
-                    descripcion: "Solución avanzada para sector moda, calzado y deportes con flujos optimizados de mercancía y etiquetado.",
-                    caracteristicas: ["Todo lo incluido en Starter Retail", "Matriz avanzada de Tallas, Colores y Variaciones", "Automatización de etiquetas desde TPV", "Pasarela de pagos unificada", "Fidelización de clientes CRM", "Sincronización multitienda / stock"]
-                },
-                empresa: {
-                    titular: "Empresa Retail — A medida",
-                    descripcion: "Para grandes retailers, centros de distribución o integraciones de control de accesos complejos (Crownet).",
-                    caracteristicas: ["Todo lo incluido en Plus Retail", "Integración avanzada Crownet (Accesos/Taquillas)", "Gestión centralizada de compras", "Consultoría técnica e implantación", "SLA garantizado y soporte VIP"]
-                }
-            }
-        };
-
-        function cambiarSector(sector) {
-            sectorActual = sector;
-            
-            document.getElementById('btn-restaurant').classList.remove('active');
-            document.getElementById('btn-retail').classList.remove('active');
-            
-            if (sector === 'restaurant') {
-                document.getElementById('btn-restaurant').classList.add('active');
-            } else {
-                document.getElementById('btn-retail').classList.add('active');
-            }
-
-            actualizarDetallesPlan();
-        }
-
-        function actualizarDetallesPlan() {
-            const selectPlan = document.getElementById('plan');
-            const planSeleccionado = selectPlan.value; 
-            
-            const datosPlan = baseDatosPlanes[sectorActual][planSeleccionado];
-
-            document.getElementById('plan-titular').innerText = datosPlan.titular;
-            document.getElementById('plan-descripcion').innerText = datosPlan.descripcion;
-
-            const contenedorLista = document.getElementById('plan-caracteristicas');
-            contenedorLista.innerHTML = '';
-
-            datosPlan.caracteristicas.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<span class="bullet-check">✓</span> ${item}`;
-                contenedorLista.appendChild(li);
-            });
-
-            // Guardar dinámicamente los datos elegidos para mandarlos por email
-            document.getElementById('correo-sector').value = sectorActual.toUpperCase();
-            document.getElementById('correo-titular-plan').value = datosPlan.titular;
-            document.getElementById('correo-detalles-plan').value = datosPlan.caracteristicas.join(' | ');
-        }
-
-        function inicializarPagina() {
-            const parametrosURL = new URLSearchParams(window.location.search);
-            const sectorDetectado = parametrosURL.get('sector'); 
-
-            if (sectorDetectado === 'restaurant' || sectorDetectado === 'retail') {
-                cambiarSector(sectorDetectado);
-            } else {
-                actualizarDetallesPlan();
-            }
-        }
-
-        // 'inicializarPagina' para que detecte la URL al entrar
-        window.onload = inicializarPagina;
-    </script>
 </body>
 </html>

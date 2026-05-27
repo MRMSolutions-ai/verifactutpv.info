@@ -249,17 +249,14 @@ body {
 .retail-row-image {
     flex: 1;
     min-width: 300px;
-    background: #eef2f7;
-    height: 320px;
+    background: #ffffff;
+    padding: 50px 40px;
     border-radius: 8px;
     border: 1px solid #e5e5e5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     font-weight: 600;
-    color: #718096;
+    color: #999;
     box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    overflow: hidden;
 }
 
 .retail-row-image img {
