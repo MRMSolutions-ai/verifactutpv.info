@@ -113,8 +113,53 @@ body {
     display: flex;
     min-height: calc(100vh - 78px);
     width: 100%;
+    position: relative; /* Contiene las nubes absolutas */
+    overflow: hidden; /* Evita scroll vertical de las nubes */
+    background-color: var(--light-bg); /* Fondo de la parte izquierda */
 }
 
+/* --- ANIMACIÓN DE NUBES --- */
+.clouds-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%; 
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cloud-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    fill: var(--primary-blue);
+    animation: moveCloudBack 16s ease-in-out infinite alternate;
+}
+
+.cloud-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    fill: var(--dark-blue);
+    animation: moveCloudFront 10s ease-in-out infinite alternate;
+}
+
+@keyframes moveCloudFront {
+    0% { transform: translateY(-5%) scaleX(1); }
+    100% { transform: translateY(-40%) scaleX(1.02); }
+}
+
+@keyframes moveCloudBack {
+    0% { transform: translateY(-35%) scaleX(1.05); }
+    100% { transform: translateY(-10%) scaleX(0.95); }
+}
+
+/* --- CONTENIDO HERO --- */
 .hero-half {
     flex: 1;
     display: flex;
@@ -124,18 +169,19 @@ body {
     padding: 60px 40px;
     text-align: center;
     position: relative;
+    z-index: 1; /* Por encima de las nubes */
     transition: all 0.3s ease;
 }
 
 /* Lado Izquierdo: Retail */
 .hero-retail {
-    background-color: var(--light-bg);
+    background-color: transparent; 
     color: var(--text-dark);
 }
 
 /* Lado Derecho: Restaurant */
 .hero-restaurant {
-    background-color: var(--dark-blue);
+    background-color: transparent; 
     color: var(--text-light);
 }
 
@@ -148,26 +194,20 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    overflow: hidden;  /*Importante para que la imagen respete los bordes redondeados*/
-    background:transparent;
+    overflow: hidden;
+    background: transparent;
 }
 
 .hero-tpv-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Esto hace  que la imagen llene el espacio sin deformarse, recortandose un poco si es necesario */
-    object-position: center; /*Centra la imagen dentro del recorte*/
-    border-radius: 12 px; /* Mismo radio que el contenedor */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
 }
 
 .hero-restaurant .hero-image-container {
     background: rgba(255,255,255,0.05);
-}
-
-.hero-image-placeholder {
-    width: 70%;
-    height: 70%;
-    opacity: 0.8;
 }
 
 .hero-half h1 {
@@ -352,8 +392,6 @@ body {
 
 .btn-orange:hover { background-color: #e05d00; }
 
-
-
 /* Footer */
 .footer {
     background-color: #0b0f19;
@@ -364,13 +402,13 @@ body {
 }
 
 .footer-socials {
-    display: flex !important;          /* Forzamos que se muestre en pantalla */
-    justify-content: center !important; /* Totalmente centrado horizontalmente */
+    display: flex !important;          
+    justify-content: center !important; 
     align-items: center !important;
-    gap: 30px !important;              /* Separación limpia entre iconos */
+    gap: 30px !important;              
     margin: 40px auto 30px auto !important;
     padding-top: 30px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* Línea divisoria clara */
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important; 
     width: 100% !important;
     max-width: 1200px !important;
 }
@@ -381,22 +419,20 @@ body {
     transition: transform 0.2s ease-in-out !important;
 }
 
-/* Forzamos el color blanco e impedimos que se rompa el tamaño */
 .footer-socials svg {
-    width: 24px !important;           /* Tamaño idéntico a la imagen original */
+    width: 24px !important;           
     height: 24px !important;
-    fill: #ffffff !important;         /* ¡BLANCO OBLIGATORIO para que se vea! */
-    opacity: 0.8 !important;          /* Opacidad elegante de fondo */
+    fill: #ffffff !important;         
+    opacity: 0.8 !important;          
     transition: opacity 0.2s ease !important;
 }
 
-/* Efecto visual al pasar el ratón por encima (Hover) */
 .footer-socials a:hover svg {
-    opacity: 1 !important;            /* Brillo máximo */
+    opacity: 1 !important;            
 }
 
 .footer-socials a:hover {
-    transform: translateY(-3px) !important; /* Pequeña animación hacia arriba */
+    transform: translateY(-3px) !important; 
 }
 
 .footer-grid {
@@ -465,6 +501,11 @@ body {
     .nav-links.active { display: flex; }
     .nav-btn { width: 100%; text-align: center; }
     .hero-split { flex-direction: column; }
+    
+    /* Reglas para apagar la animación de nubes en móvil y asegurar contraste */
+    .clouds-background { display: none; }
+    .hero-restaurant { background-color: var(--dark-blue); }
+
     .hero-half { padding: 80px 20px; }
     .hero-half h1 { font-size: 32px; }
     .features-section, .cta-section, .ecosystem-section { padding: 60px 20px; }
@@ -474,12 +515,5 @@ body {
     .footer-socials {
         gap: 22px;
         margin: 30px 0 20px 0;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-legal a {
-        margin: 0 10px;
     }
 }
